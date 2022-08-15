@@ -6,6 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths&icu</title>
+    <script type="text/javascript">
+    window.onload = function () {
+        window.requestAnimationFrame(getDate)
+    }
+
+    function getDate() {
+        window.setTimeout(function () {
+            window.requestAnimationFrame(getDate)
+        }, 1000 / 2)
+        var d = new Date();
+        var year = d.getFullYear()
+        var month = d.getMonth() + 1;
+        var day = d.getDay()
+        var days = d.getDate()
+        var hour = d.getHours()
+        var minute = d.getMinutes()
+        var second = d.getSeconds()
+
+        if (month < 10) month = "0" + month
+        if (days < 10) days = "0" + days
+        if (hour < 10) hour = "0" + hour
+        if (minute < 10) minute = "0" + minute
+        if (second < 10) second = "0" + second
+
+        var week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
+        var Tools = document.getElementById("Main")
+        var Newtime = year + " year " + month + " month " + days + " days " + week[day] + " " + hour + " : " + minute + " :" + second
+        Tools.innerHTML = Newtime
+    }
+</script>
     <style type="text/css">
         * {
             margin: 0px;
@@ -73,35 +103,6 @@
     <div class="copy">&copy; ２０２２&ｍａｔｈｓ．ＩＣＵ</div>
 </body>
 
-<script type="text/javascript">
-    window.onload = function () {
-        window.requestAnimationFrame(getDate)
-    }
 
-    function getDate() {
-        window.setTimeout(function () {
-            window.requestAnimationFrame(getDate)
-        }, 1000 / 2)
-        var d = new Date();
-        var year = d.getFullYear()
-        var month = d.getMonth() + 1;
-        var day = d.getDay()
-        var days = d.getDate()
-        var hour = d.getHours()
-        var minute = d.getMinutes()
-        var second = d.getSeconds()
-
-        if (month < 10) month = "0" + month
-        if (days < 10) days = "0" + days
-        if (hour < 10) hour = "0" + hour
-        if (minute < 10) minute = "0" + minute
-        if (second < 10) second = "0" + second
-
-        var week = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday")
-        var Tools = document.getElementById("Main")
-        var Newtime = year + " year " + month + " month " + days + " days " + week[day] + " " + hour + " : " + minute + " :" + second
-        Tools.innerHTML = Newtime
-    }
-</script>
 
 </html>
